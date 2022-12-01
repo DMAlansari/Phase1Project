@@ -3,9 +3,12 @@ package com.LockedMe;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
-import com.kfh.SecondClass.UserDetails;
+
+
 
 public class Lockers {
 
@@ -16,9 +19,30 @@ public class Lockers {
 		List<String> files = new ArrayList<>();
 		files.add("music.txt");
 		files.add("videos.txt");
-		new UserFiles().createFile(files.get(0));
-		new UserFiles().createFile(files.get(1));
-		status = new UserFiles().deleteFile(files.get(0));
+		files.add("file1.txt");
+		files.add("file2.txt");
+		files.add("newfile.txt");
+		files.add("test.txt");
+		files.add("file2.txt");
+//		for(int i=0;i<files.size();++i) {
+//		new UserFiles().createFile(files.get(i));}
+		System.out.println(files);
+		Collections.sort(files); // sorting in ascending order
+		System.out.println(files);
+		
+	  	String fileName = "test.txt";
+ 	    for(String ref : files) {
+ 			  
+ 			  if(fileName.equalsIgnoreCase(ref)){
+ 			    System.out.println(ref);
+ 			 files.remove(ref); }
+ 	    }
+ 	    System.out.println(files);
+ 	    
+   
+		
+		
+		//status = new UserFiles().deleteFile(files.get(0));
 		System.out.println(status);
 		if(status==1) {
 			files.remove(0);
